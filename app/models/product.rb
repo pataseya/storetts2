@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
-  validates :category_id, presence: true
+  mount_uploader :image, ImageUploader
+  
   belongs_to :category
 end

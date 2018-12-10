@@ -40,7 +40,14 @@
     <%= form.select :category_id, @categories.collect { |c| [ c.name, c.id ]}, {include_blank: "Please select a category" } %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <strong>Upload Product Image: </strong>
+    <%= form.file_field :image %>
   </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+
+
 <% end %>
