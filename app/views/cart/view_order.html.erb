@@ -1,0 +1,28 @@
+<h2>My Cart</h2>
+
+<% if @line_items.empty? %>
+  <h3>Your Cart is currently empty. Why don't you add something to it?</h3>
+<% else %>
+      <div>
+          <table class="table">
+            <tr>
+              <th>Product Name</th>
+              <th>Product Price</th>
+              <th>Quantity Ordered</th>
+              <th>Total</th>
+            </tr>
+        <% @line_items.each do |line_item| %>
+            <tr>
+              <td><%= line_item.product.name %></td>
+              <td><%= number_to_currency line_item.product.price %></td>
+              <td><%= line_item.quantity %></td>
+              <td><%= number_to_currency line_item.line_item_total %></td>
+            </tr>
+        <% end %>
+          </table>
+      </div>
+
+      <div>
+        <%= link_to "Proceed to Checkout?", checkout_path, class: "btn btn-success" %>
+      </div>
+<% end %>
