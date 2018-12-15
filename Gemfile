@@ -22,6 +22,11 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'cancancan'
 gem 'carrierwave'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'figaro'
+gem 'aws-sdk-rails'
+gem 'carrierwave-aws'
+gem 'fog'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

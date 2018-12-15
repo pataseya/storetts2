@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
+  before_action :authenticate_user!, except: [:show]
+
   # GET /products
   # GET /products.json
   def index
@@ -14,12 +16,14 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
+    authorize! :create, Product
     @product = Product.new
     @categories = Category.all
   end
 
   # GET /products/1/edit
   def edit
+    authorize! :update, @product
     @categories = Category.all
   end
 
@@ -61,6 +65,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
+    authorize! :destroy, @product
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }

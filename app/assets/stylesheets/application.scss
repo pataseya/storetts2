@@ -16,3 +16,16 @@
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
  @import 'font-awesome';
+
+ .jumbotron {
+   background-image: url("banner.jpg");
+   background-size: cover;
+   background-size: 100% 100%;
+   color: white;
+ }
+
+
+
+ body {
+   background-color: #00e64d;
+ }
